@@ -15,3 +15,26 @@ html,
 #root {
   height: 100%;
 }
+
+:root {
+  --main-color: #B6D7B9;
+  --secondary-color: #D0F1Bf;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+ol,
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}

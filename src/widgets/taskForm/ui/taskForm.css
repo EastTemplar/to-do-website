@@ -1,0 +1,12 @@
+@import '/src/index.css';
+
+.task-form-container {
+  border-radius: 1rem;
+  background: var(--main-color);
+}
+
+.task-form-flexbox {
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+}
