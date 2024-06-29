@@ -24,20 +24,19 @@ export function HomePage() {
   }
 
   function removeTask(index: number) {
-    console.log(index);
     assertRemoveTask(index);
     const tasksTemp = tasks.slice();
-    setTasks(tasksTemp.splice(index, 1));
-    console.log(tasks);
+    tasksTemp.splice(index, 1)
+    setTasks(tasksTemp);
   }
 
   return <div className="page-wrapper">
     {tasks.map((task) =>
       <TaskForm
-        key={task.id}
+        key={tasks.indexOf(task)}
         name={task.name}
         description={task.description}>
-        <Button onClick={() => removeTask(task.id)}>
+        <Button onClick={() => removeTask(tasks.indexOf(task))}>
           Delete
         </Button>
       </TaskForm>)}
