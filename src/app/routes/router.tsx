@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { HomePage } from "../../pages/homePage"
+import { TasksPage } from "../../pages/tasksPage"
 
 export function Router() {
 
@@ -7,7 +8,11 @@ export function Router() {
     {
       path: "/",
       element: <HomePage />
-    }
+    },
+    {
+      path: "/tasks",
+      element: <TasksPage />
+    },
   ])
 
   return (
