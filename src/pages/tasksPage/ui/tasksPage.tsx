@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "../../../shared/ui/button";
 import { TaskForm } from "../../../widgets/taskForm";
-import "./tasksPage.css";
+import styles from "./tasksPage.module.css";
 
 export function TasksPage() {
   const [tasks, setTasks] = useState([
@@ -30,15 +30,16 @@ export function TasksPage() {
     setTasks(tasksTemp);
   }
 
-  return <div className="page-wrapper">
-    {tasks.map((task) => <TaskForm
-      key={tasks.indexOf(task)}
-      name={task.name}
-      description={task.description}>
-      <Button onClick={() => removeTask(tasks.indexOf(task))}>
-        Delete
-      </Button>
-    </TaskForm>)}
-  </div>;
+  return (
+    <div className={styles.pageWrapper}>
+      {tasks.map((task) => <TaskForm
+        key={tasks.indexOf(task)}
+        name={task.name}
+        description={task.description}>
+        <Button onClick={() => removeTask(tasks.indexOf(task))}>
+          Delete
+        </Button>
+      </TaskForm>)}
+    </div>);
 }
 

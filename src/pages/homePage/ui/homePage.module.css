@@ -1,6 +1,6 @@
 @import "/src/index.css";
 
-.page-wrapper {
-  padding-inline: 20%;
+.pageWrapper {
   margin-top: 5rem;
+  padding-inline: 20%;
 }
