@@ -1,20 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import styles from "./tasksPage.module.css";
 import { Button } from "../../../shared/ui/button";
 import { TaskForm } from "../../../widgets/taskForm";
-import styles from "./tasksPage.module.css";
 import { CreateTaskForm } from "../../../features/createTask";
+import { Task } from "../../../entities/task/types";
+import { loadTasks } from "../api/loadTasks";
 
 export function TasksPage() {
-  const [tasks, setTasks] = useState([
-    {
-      name: 'Lorem ipsum',
-      description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?'
-    },
-    {
-      name: 'Lorem',
-      description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?'
-    },
-  ]);
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  useEffect(() => {
+    setTasks(loadTasks());
+  }, []);
 
   function assertRemoveTask(index: number) {
     if (index > tasks.length - 1) {
@@ -31,15 +28,18 @@ export function TasksPage() {
 
   return (
     <div className={styles.pageWrapper}>
-      {tasks.map((task) => <TaskForm
-        key={tasks.indexOf(task)}
-        name={task.name}
-        description={task.description}>
-        <Button onClick={() => removeTask(tasks.indexOf(task))}>
-          Delete
-        </Button>
-      </TaskForm>)}
+      {tasks.map((task) => (
+        <TaskForm
+          key={tasks.indexOf(task)}
+          name={task.title}
+          description={task.description}
+        >
+          <Button onClick={() => removeTask(tasks.indexOf(task))}>
+            Delete
+          </Button>
+        </TaskForm>
+      ))}
       <CreateTaskForm />
-    </div>);
+    </div>
+  );
 }
-
