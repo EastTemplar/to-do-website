@@ -3,12 +3,18 @@ import { Button } from "../../../shared/ui/button";
 import styles from "./createTaskForm.module.css";
 import { createTask } from "../api/createTask";
 
-export function CreateTaskForm() {
+interface ICreateTaskFormProps {
+  onCreateTask: () => void;
+}
+
+export function CreateTaskForm(props: ICreateTaskFormProps) {
+  const { onCreateTask } = props;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   function createNewTask(event: MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
+    onCreateTask();
     createTask(title, description);
   }
 

@@ -10,10 +10,14 @@ export function TasksPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   useEffect(() => {
+    render();
+  }, []);
+
+  function render() {
     loadTasks().then((response) => {
       setTasks(response?.data);
     });
-  }, []);
+  }
 
   function assertRemoveTask(index: number) {
     if (index > tasks.length - 1) {
@@ -28,6 +32,8 @@ export function TasksPage() {
     setTasks(tasksTemp);
   }
 
+  //TODO: Create remove request to backend
+
   return (
     <div className={styles.pageWrapper}>
       {tasks.map((task) => (
@@ -41,7 +47,7 @@ export function TasksPage() {
           </Button>
         </TaskForm>
       ))}
-      <CreateTaskForm />
+      <CreateTaskForm onCreateTask={render} />
     </div>
   );
 }
