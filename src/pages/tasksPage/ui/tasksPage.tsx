@@ -10,7 +10,9 @@ export function TasksPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   useEffect(() => {
-    setTasks(loadTasks());
+    loadTasks().then((response) => {
+      setTasks(response?.data);
+    });
   }, []);
 
   function assertRemoveTask(index: number) {
