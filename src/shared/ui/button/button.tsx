@@ -1,13 +1,11 @@
-import './button.css';
+import "./button.css";
 
 interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  children: string
+  children: string;
 }
 
 export function Button(props: IButtonProps) {
   const { children } = props;
 
-  return <button {...props}>
-    {children}
-  </button>
+  return <button {...props}>{children}</button>;
 }
