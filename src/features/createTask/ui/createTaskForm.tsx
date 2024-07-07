@@ -5,13 +5,23 @@ import { createNewTask } from "../../../entities/task";
 import { Input } from "@mui/material";
 import { Paper } from "../../../shared/ui/paper/index";
 
-export function CreateTaskForm() {
+interface CreateTaskFormProp {
+  onCreate?: () => void;
+}
+
+export function CreateTaskForm(props: CreateTaskFormProp) {
+  const { onCreate } = props;
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   function createTask(event: MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
     createNewTask(title, description);
+
+    if (onCreate !== undefined) {
+      onCreate();
+    }
   }
 
   return (

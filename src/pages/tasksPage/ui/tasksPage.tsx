@@ -1,8 +1,8 @@
-import AddIcon from "@mui/icons-material/Add";
 import { Link } from "react-router-dom";
-import { Button } from "../../../shared/ui/button";
 import { TasksHolder } from "../../../widgets/tasksHolder";
 import styles from "./tasksPage.module.scss";
+import { Button } from "../../../shared/ui/button";
+import AddIcon from "@mui/icons-material/Add";
 
 export function TasksPage() {
   return (

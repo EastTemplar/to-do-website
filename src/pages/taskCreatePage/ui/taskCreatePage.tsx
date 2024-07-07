@@ -5,6 +5,10 @@ import { Button } from "../../../shared/ui/button";
 import styles from "./taskCreatePage.module.scss";
 
 export function TaskCreatePage() {
+  function redirectToPreviousPage() {
+    history.back();
+  }
+
   return (
     <div className={styles.pageWrapper}>
       <Link to={"/"}>
@@ -13,7 +17,7 @@ export function TaskCreatePage() {
         </Button>
       </Link>
 
-      <CreateTaskForm />
+      <CreateTaskForm onCreate={redirectToPreviousPage} />
     </div>
   );
 }
