@@ -34,7 +34,9 @@ export function CreateTaskForm(props: ICreateTaskFormProps) {
         type="text"
         placeholder="Description"
       />
-      <Button onClick={createNewTask}>Submit</Button>
+      <Button variant="contained" onClick={createNewTask}>
+        Submit
+      </Button>
     </form>
   );
 }

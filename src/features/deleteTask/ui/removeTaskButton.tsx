@@ -16,5 +16,9 @@ export function RemoveTaskButton(props: IRemoveTaskButtonProps) {
     onRemovedTask();
   }
 
-  return <Button onClick={remove}>Delete</Button>;
+  return (
+    <Button variant="contained" onClick={remove}>
+      Delete
+    </Button>
+  );
 }

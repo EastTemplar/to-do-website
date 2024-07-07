@@ -1,11 +1,12 @@
-import "./button.css";
+import "./button.module.css";
+import MUIButton, { ButtonProps } from "@mui/material/Button/Button";
 
-interface IButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface IButtonProps extends ButtonProps {
   children: string;
 }
 
 export function Button(props: IButtonProps) {
   const { children } = props;
 
-  return <button {...props}>{children}</button>;
+  return <MUIButton {...props}>{children}</MUIButton>;
 }

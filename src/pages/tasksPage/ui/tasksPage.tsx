@@ -9,15 +9,15 @@ import { RemoveTaskButton } from "../../../features/deleteTask";
 export function TasksPage() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
-  useEffect(() => {
-    renderTasks();
-  }, []);
-
   function renderTasks() {
     loadTasks().then((response) => {
       setTasks(response?.data);
     });
   }
+
+  useEffect(() => {
+    renderTasks();
+  }, []);
 
   return (
     <div className={styles.pageWrapper}>
