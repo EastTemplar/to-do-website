@@ -1,11 +1,9 @@
-@import '/src/index.css';
-
-.task-form-container {
+.taskFormContainer {
   border-radius: 1rem;
   background: var(--main-color);
 }
 
-.task-form-flexbox {
+.taskFormFlexbox {
   display: flex;
   flex-direction: column;
   padding: 5%;

@@ -1,19 +1,22 @@
-import './taskForm.css';
+import { ReactNode } from "react";
+import styles from "./taskForm.module.scss";
 
 interface ITaskFormProps {
   name: string;
   description?: string;
-  children?: any;
+  children?: ReactNode;
 }
 
 export function TaskForm(props: ITaskFormProps) {
   const { name, description, children } = props;
 
-  return <div className="task-form-container">
-    <div className="task-form-flexbox">
-      <h2>{name}</h2>
-      <p>{description}</p>
-      {children}
+  return (
+    <div className={styles.taskFormContainer}>
+      <div className={styles.taskFormFlexbox}>
+        <h2>{name}</h2>
+        <p>{description}</p>
+        {children}
+      </div>
     </div>
-  </div>
+  );
 }
