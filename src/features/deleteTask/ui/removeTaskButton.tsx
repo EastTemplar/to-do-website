@@ -4,16 +4,14 @@ import { deleteTask } from "../../../entities/task";
 
 interface IRemoveTaskButtonProps {
   taskId: number;
-  onRemovedTask: () => void;
 }
 
 export function RemoveTaskButton(props: IRemoveTaskButtonProps) {
-  const { taskId, onRemovedTask } = props;
+  const { taskId } = props;
 
   function remove(event: MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
     deleteTask(taskId);
-    onRemovedTask();
   }
 
   return (

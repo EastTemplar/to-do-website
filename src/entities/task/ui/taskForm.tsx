@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
-import styles from "./taskForm.module.scss";
 import { Paper } from "../../../shared/ui/paper";
+import styles from "./taskForm.module.scss";
 
 interface ITaskFormProps {
   name: string;

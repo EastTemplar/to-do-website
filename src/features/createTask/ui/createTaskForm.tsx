@@ -5,18 +5,12 @@ import { createNewTask } from "../../../entities/task";
 import { Input } from "@mui/material";
 import { Paper } from "../../../shared/ui/paper/index";
 
-interface ICreateTaskFormProps {
-  onCreateTask: () => void;
-}
-
-export function CreateTaskForm(props: ICreateTaskFormProps) {
-  const { onCreateTask } = props;
+export function CreateTaskForm() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   function createTask(event: MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
-    onCreateTask();
     createNewTask(title, description);
   }
 

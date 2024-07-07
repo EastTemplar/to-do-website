@@ -16,7 +16,7 @@ export function TasksHolder() {
 
   useEffect(() => {
     renderTasks();
-  }, []);
+  }, [tasks]);
 
   return (
     <div className={styles.holder}>
@@ -25,13 +25,11 @@ export function TasksHolder() {
           key={tasks.indexOf(task)}
           name={task.title}
           description={task.description}
-          slot={
-            <RemoveTaskButton onRemovedTask={renderTasks} taskId={task.id} />
-          }
+          slot={<RemoveTaskButton taskId={task.id} />}
         />
       ))}
 
-      <CreateTaskForm onCreateTask={renderTasks} />
+      <CreateTaskForm />
     </div>
   );
 }
