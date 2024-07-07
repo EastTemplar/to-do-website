@@ -1,4 +1,4 @@
-import { TasksHolder } from "../../../widgets/tasksHolder/ui/tasksHolder";
+import { TasksHolder } from "../../../widgets/tasksHolder";
 import styles from "./tasksPage.module.scss";
 
 export function TasksPage() {

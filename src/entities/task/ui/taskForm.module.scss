@@ -1,11 +1,14 @@
-.taskFormContainer {
-  border-radius: 1rem;
-  background: var(--main-color);
+.form {
+  background-color: var(--main-color);
 }
 
-.taskFormFlexbox {
+.content {
   display: flex;
   flex-direction: column;
   padding: 5%;
   gap: 1.5rem;
+}
+
+.slot {
+  max-width: 10%;
 }

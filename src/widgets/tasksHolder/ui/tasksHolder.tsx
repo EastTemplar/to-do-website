@@ -19,15 +19,16 @@ export function TasksHolder() {
   }, []);
 
   return (
-    <div className={styles.pageWrapper}>
+    <div className={styles.holder}>
       {tasks.map((task) => (
         <TaskForm
           key={tasks.indexOf(task)}
           name={task.title}
           description={task.description}
-        >
-          <RemoveTaskButton onRemovedTask={renderTasks} taskId={task.id} />
-        </TaskForm>
+          slot={
+            <RemoveTaskButton onRemovedTask={renderTasks} taskId={task.id} />
+          }
+        />
       ))}
 
       <CreateTaskForm onCreateTask={renderTasks} />

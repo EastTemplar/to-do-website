@@ -1,22 +1,23 @@
 import { ReactNode } from "react";
 import styles from "./taskForm.module.scss";
+import { Paper } from "../../../shared/ui/paper";
 
 interface ITaskFormProps {
   name: string;
   description?: string;
-  children?: ReactNode;
+  slot?: ReactNode;
 }
 
 export function TaskForm(props: ITaskFormProps) {
-  const { name, description, children } = props;
+  const { name, description, slot } = props;
 
   return (
-    <div className={styles.taskFormContainer}>
-      <div className={styles.taskFormFlexbox}>
+    <Paper elevation={3} className={styles.form}>
+      <div className={styles.content}>
         <h2>{name}</h2>
         <p>{description}</p>
-        {children}
+        <div className={styles.slot}>{slot}</div>
       </div>
-    </div>
+    </Paper>
   );
 }

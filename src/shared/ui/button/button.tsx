@@ -1,4 +1,3 @@
-import "./button.module.scss";
 import MUIButton, { ButtonProps } from "@mui/material/Button/Button";
 
 interface IButtonProps extends ButtonProps {
