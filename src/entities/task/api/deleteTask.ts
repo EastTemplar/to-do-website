@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const removeTask = async (index: number) => {
+export const deleteTask = async (index: number) => {
   try {
     return await axios.delete("http://localhost:5000/tasks", {
       data: {

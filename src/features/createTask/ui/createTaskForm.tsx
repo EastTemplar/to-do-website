@@ -1,7 +1,7 @@
 import { MouseEvent, useState } from "react";
 import { Button } from "../../../shared/ui/button";
 import styles from "./createTaskForm.module.scss";
-import { createTask } from "../api/createTask";
+import { createNewTask as createTask } from "../../../entities/task";
 
 interface ICreateTaskFormProps {
   onCreateTask: () => void;

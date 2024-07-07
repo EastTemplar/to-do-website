@@ -1,6 +1,6 @@
 import { MouseEvent } from "react";
 import { Button } from "../../../shared/ui/button";
-import { removeTask } from "../api/removeTask";
+import { deleteTask } from "../../../entities/task";
 
 interface IRemoveTaskButtonProps {
   taskId: number;
@@ -12,7 +12,7 @@ export function RemoveTaskButton(props: IRemoveTaskButtonProps) {
 
   function remove(event: MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
-    removeTask(taskId);
+    deleteTask(taskId);
     onRemovedTask();
   }
 
