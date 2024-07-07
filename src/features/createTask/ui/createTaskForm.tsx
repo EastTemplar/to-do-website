@@ -1,7 +1,7 @@
 import { MouseEvent, useState } from "react";
 import { Button } from "../../../shared/ui/button";
 import styles from "./createTaskForm.module.scss";
-import { createNewTask as createTask } from "../../../entities/task";
+import { createNewTask } from "../../../entities/task";
 
 interface ICreateTaskFormProps {
   onCreateTask: () => void;
@@ -12,10 +12,10 @@ export function CreateTaskForm(props: ICreateTaskFormProps) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
-  function createNewTask(event: MouseEvent<HTMLButtonElement>): void {
+  function createTask(event: MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
     onCreateTask();
-    createTask(title, description);
+    createNewTask(title, description);
   }
 
   return (
@@ -34,7 +34,7 @@ export function CreateTaskForm(props: ICreateTaskFormProps) {
         type="text"
         placeholder="Description"
       />
-      <Button variant="contained" onClick={createNewTask}>
+      <Button variant="contained" onClick={createTask}>
         Submit
       </Button>
     </form>

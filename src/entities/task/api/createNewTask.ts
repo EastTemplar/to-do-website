@@ -1,8 +1,10 @@
 import axios from "axios";
 
-export const createNewTask = async (title: string, description: string) => {
+export const createNewTask = (title: string, description: string) => {
   try {
-    await axios.post("http://localhost:5000/tasks", {
+    return axios({
+      method: "post",
+      url: "http://localhost:5000/tasks",
       data: {
         title: title,
         description: description,
