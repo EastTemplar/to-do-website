@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { getTasks, TaskForm } from "../../../entities/task";
 import { Task } from "../../../entities/task/types";
-import { CreateTaskForm } from "../../../features/createTask";
 import { RemoveTaskButton } from "../../../features/deleteTask";
 import styles from "./tasksHolder.module.scss";
 
@@ -28,9 +27,6 @@ export function TasksHolder() {
           slot={<RemoveTaskButton taskId={task.id} />}
         />
       ))}
-      <div className={styles.createForm}>
-        <CreateTaskForm />
-      </div>
     </div>
   );
 }

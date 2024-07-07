@@ -1,11 +1,6 @@
 import MUIButton, { ButtonProps } from "@mui/material/Button/Button";
 
-interface IButtonProps extends ButtonProps {
-  children: string;
-}
-
-export function Button(props: IButtonProps) {
+export function Button(props: ButtonProps) {
   const { children } = props;
-
   return <MUIButton {...props}>{children}</MUIButton>;
 }

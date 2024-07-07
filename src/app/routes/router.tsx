@@ -1,21 +1,19 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import { HomePage } from "../../pages/homePage"
-import { TasksPage } from "../../pages/tasksPage"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { TasksPage } from "../../pages/tasksPage";
+import { TaskCreatePage } from "../../pages/taskCreatePage";
 
 export function Router() {
-
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <HomePage />
+      element: <TasksPage />,
     },
-    {
-      path: "/tasks",
-      element: <TasksPage />
-    },
-  ])
 
-  return (
-    <RouterProvider router={router} />
-  )
+    {
+      path: "/create",
+      element: <TaskCreatePage />,
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
