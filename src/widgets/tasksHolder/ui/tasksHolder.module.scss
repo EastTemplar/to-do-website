@@ -1,5 +1,17 @@
+@import "/src/app/styles/resizeValues.scss";
+
 .holder {
   display: flex;
   flex-direction: column;
   gap: 3rem;
+}
+
+.createForm {
+  width: 100%;
+}
+
+@media (min-width: $mobile-resize-width) {
+  .createForm {
+    width: 60%;
+  }
 }

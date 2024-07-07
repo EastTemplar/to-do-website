@@ -28,8 +28,9 @@ export function TasksHolder() {
           slot={<RemoveTaskButton taskId={task.id} />}
         />
       ))}
-
-      <CreateTaskForm />
+      <div className={styles.createForm}>
+        <CreateTaskForm />
+      </div>
     </div>
   );
 }
