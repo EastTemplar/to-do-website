@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const loadTasks = async () => {
+export const getTasks = async () => {
   try {
     return await axios.get("http://localhost:5000/tasks");
   } catch (error) {

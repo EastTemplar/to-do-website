@@ -1,7 +1,8 @@
-import { Router } from "./routes"
+import { Router } from "./routes";
+import "./styles/index.scss";
 
 function App() {
-  return <Router />
+  return <Router />;
 }
 
-export default App
+export default App;
