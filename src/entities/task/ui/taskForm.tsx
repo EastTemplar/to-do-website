@@ -4,20 +4,18 @@ import styles from "./taskForm.module.scss";
 
 interface ITaskFormProps {
   name: string;
-  description?: string;
-  slot?: ReactNode;
+  upperSlot?: ReactNode;
+  lowerSlot?: ReactNode;
 }
 
 export function TaskForm(props: ITaskFormProps) {
-  const { name, description, slot } = props;
+  const { name, upperSlot, lowerSlot } = props;
 
   return (
-    <Paper elevation={3} className={styles.form}>
-      <div className={styles.content}>
-        <h2>{name}</h2>
-        <p>{description}</p>
-        <div className={styles.slot}>{slot}</div>
-      </div>
+    <Paper elevation={5} className={styles.form}>
+      <div>{upperSlot}</div>
+      <h2 className={styles.title}>{name}</h2>
+      <div>{lowerSlot}</div>
     </Paper>
   );
 }

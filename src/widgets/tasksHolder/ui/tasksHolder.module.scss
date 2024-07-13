@@ -3,7 +3,7 @@
 .holder {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
 }
 
 .createForm {
@@ -13,5 +13,6 @@
 @media (min-width: $mobile-resize-width) {
   .createForm {
     width: 60%;
+    gap: 2rem;
   }
 }
