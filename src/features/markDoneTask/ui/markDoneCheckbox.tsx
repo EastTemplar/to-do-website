@@ -1,4 +1,4 @@
-import { MouseEvent } from "react";
+import { MouseEvent, useState } from "react";
 import { markDoneTask } from "../../../entities/task/api/markDoneTask";
 import { Checkbox } from "../../../shared/ui/checkbox";
 
@@ -6,12 +6,14 @@ interface IMarkDoneCheckboxProps {
   taskId: number;
 }
 export function MarkDoneCheckbox(props: IMarkDoneCheckboxProps) {
+  const [isToggled, Toggle] = useState(false);
   const { taskId } = props;
 
-  function mark(event: MouseEvent<HTMLButtonElement>): void {
+  function toggleMark(event: MouseEvent<HTMLButtonElement>): void {
     event.preventDefault();
-    markDoneTask(taskId);
+    Toggle(!isToggled);
+    markDoneTask(taskId, isToggled);
   }
 
-  return <Checkbox onClick={mark} />;
+  return <Checkbox onClick={toggleMark} />;
 }

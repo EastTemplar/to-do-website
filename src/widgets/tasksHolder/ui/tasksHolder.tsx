@@ -24,7 +24,6 @@ export function TasksHolder() {
         <TaskForm
           key={tasks.indexOf(task)}
           name={task.title}
-          description={task.description}
           upperSlot={<MarkDoneCheckbox taskId={task.id} />}
           lowerSlot={<RemoveTaskButton taskId={task.id} />}
         />
