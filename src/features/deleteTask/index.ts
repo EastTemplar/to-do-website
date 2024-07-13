@@ -1,1 +1,1 @@
-export { RemoveTaskButton } from "./ui/removeTaskButton";
+export { RemoveTaskButton } from "./ui/deleteTaskButton";
